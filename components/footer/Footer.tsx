@@ -22,6 +22,8 @@ const isIcon = (item: Item): item is IconItem =>
   // deno-lint-ignore no-explicit-any
   typeof (item as any)?.icon === "string";
 
+console.log("isIcon", isIcon);
+
 function SectionItem({ item }: { item: Item }) {
   return (
     <Text variant="caption" tone="default-inverse">
