@@ -2,35 +2,37 @@ import Text from "$store/components/ui/Text.tsx";
 
 function Newsletter() {
   return (
-    <div class="flex flex-col sm:flex-row items-center text-uppercase">
-      <div class="flex flex-col gap-2 w-[40%]">
+    <div class="flex flex-col items-end sm:flex-row items-center gap-6 sm:gap-20 px-[2%]">
+      <div class="flex flex-col gap-2 max-w-[400px]">
         <Text
           variant="heading-2"
           tone="default-inverse"
-          class="text-black tracking-[0.25rem] font-bold text-[27px]"
+          class="text-black font-bold text-[27px] tracking-[4px] text-uppercase"
         >
           Newsletter
         </Text>
         <Text
           variant="caption"
           tone="default-inverse"
-          class="text-[#505050] text-xs tracking-[0.05px]"
+          class="text-[11px] text-[#505050] text-uppercase tracking-[0.5px]"
         >
           Receba nossas novidades imperdíveis!{" "}
-          <Text class="text-[#9f7755] text-[11px]">Cadastre-se</Text>
+          <Text class="text-[11px] text-[#9F7755] tracking-[0.5px]">
+            Cadastre-se
+          </Text>
         </Text>
       </div>
-      <form class="flex flex-row items-center gap-2 font-body text-body w-full">
+      <form class="flex flex-1 flex-row items-center gap-2 font-body text-body w-full sm:w-[408px]">
         <input
-          class="border-b-[1px] text-[#505050] text-lowercase placeholder:font-sans pl-4 h-11 focus:outline-none w-[43%] mr-[2%] text-xs"
+          class="py-2 px-3 flex-grow bg-footer text-[#757575] border-b-1 focus:outline-none bg-transparent text-xs"
           placeholder="nome"
         />
         <input
-          class="border-b-[1px] text-[#505050] text-lowercase placeholder:font-sans pl-4 h-11 focus:outline-none w-[43%] mr-[2%] text-xs"
+          class="py-2 px-3 flex-grow bg-footer text-[#757575] border-b-1 focus:outline-none bg-transparent text-xs"
           placeholder="e-mail"
         />
         <button
-          class="rounded text-white bg-[#a07653] text-xs font-semibold w-[95px] p-4"
+          class="flex items-center justify-center py-2 px-3 bg-interactive-inverse rounded focus:outline-none bg-[#A07653] text-xs text-white font-semibold w-[100px] p-[14px] h-[40px]"
           type="bgutton" // prevent form's default behavior
         >
           Enviar

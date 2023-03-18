@@ -449,6 +449,22 @@ const manifest: DecoManifest = {
                       "type": "string",
                       "const": "WhatsApp",
                     },
+                    {
+                      "type": "string",
+                      "const": "e-Plus",
+                    },
+                    {
+                      "type": "string",
+                      "const": "VTEX",
+                    },
+                    {
+                      "type": "string",
+                      "const": "Arrow",
+                    },
+                    {
+                      "type": "string",
+                      "const": "YouTube",
+                    },
                   ],
                   "title": "Icon",
                   "description": "Image src",
@@ -651,6 +667,22 @@ const manifest: DecoManifest = {
                               {
                                 "type": "string",
                                 "const": "WhatsApp",
+                              },
+                              {
+                                "type": "string",
+                                "const": "e-Plus",
+                              },
+                              {
+                                "type": "string",
+                                "const": "VTEX",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Arrow",
+                              },
+                              {
+                                "type": "string",
+                                "const": "YouTube",
                               },
                             ],
                             "title": "Icon",
