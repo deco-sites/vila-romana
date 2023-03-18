@@ -19,6 +19,7 @@ function Logo({ logo }: { logo: ILogo }) {
           title={title}
           alt={alt}
           width={238}
+          height={56}
         />
       </Picture>
     </a>

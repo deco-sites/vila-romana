@@ -148,6 +148,51 @@ const manifest: DecoManifest = {
             "required": [],
             "description": "Default is 2 for mobile and all for desktop",
           },
+          "bannerSize": {
+            "title": "Banner Size",
+            "type": "object",
+            "properties": {
+              "mobile": {
+                "title": "Mobile",
+                "type": "object",
+                "properties": {
+                  "width": {
+                    "type": "number",
+                    "title": "Width",
+                  },
+                  "height": {
+                    "type": "number",
+                    "title": "Height",
+                  },
+                },
+                "required": [
+                  "width",
+                  "height",
+                ],
+              },
+              "desktop": {
+                "title": "Desktop",
+                "type": "object",
+                "properties": {
+                  "width": {
+                    "type": "number",
+                    "title": "Width",
+                  },
+                  "height": {
+                    "type": "number",
+                    "title": "Height",
+                  },
+                },
+                "required": [
+                  "width",
+                  "height",
+                ],
+              },
+            },
+            "required": [],
+            "description":
+              "Default is square, you can use square or retangular",
+          },
           "borderRadius": {
             "title": "Border Radius",
             "type": "object",
@@ -199,6 +244,7 @@ const manifest: DecoManifest = {
               },
               "required": [
                 "srcMobile",
+                "srcDesktop",
                 "alt",
                 "href",
               ],
@@ -208,6 +254,7 @@ const manifest: DecoManifest = {
         },
         "required": [
           "itemsPerLine",
+          "bannerSize",
           "borderRadius",
           "banners",
         ],
@@ -455,6 +502,18 @@ const manifest: DecoManifest = {
                       "type": "string",
                       "const": "Location",
                     },
+                    {
+                      "type": "string",
+                      "const": "Pickup",
+                    },
+                    {
+                      "type": "string",
+                      "const": "Scissors",
+                    },
+                    {
+                      "type": "string",
+                      "const": "Return",
+                    },
                   ],
                   "title": "Icon",
                   "description": "Image src",
@@ -464,16 +523,10 @@ const manifest: DecoManifest = {
                   "title": "Title",
                   "description": "Title",
                 },
-                "description": {
-                  "type": "string",
-                  "title": "Description",
-                  "description": "Description and Image alt text",
-                },
               },
               "required": [
                 "icon",
                 "title",
-                "description",
               ],
             },
             "title": "Features",
@@ -661,6 +714,18 @@ const manifest: DecoManifest = {
                               {
                                 "type": "string",
                                 "const": "Location",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Pickup",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Scissors",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Return",
                               },
                             ],
                             "title": "Icon",

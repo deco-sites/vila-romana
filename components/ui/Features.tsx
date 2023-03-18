@@ -14,7 +14,6 @@ export interface Feature {
   /**
    * @description Description and Image alt text
    */
-  description: string;
 }
 
 export interface Props {
@@ -25,22 +24,20 @@ function FeatureHighlights(
   { features }: Props,
 ) {
   return (
-    <Container class="min-h-[280px] p-6 sm:px-0 sm:py-10">
-      <div class="border-default border-1">
-        <div class="flex flex-col justify-evenly sm:flex-row divide-y-1 sm:divide-y-0 sm:divide-x-1 divide-default mx-6 sm:mx-0 sm:my-10">
-          {features.map(({ icon: id = "Truck", title, description }) => (
-            <div class="flex flex-row sm:flex-col gap-4 py-6 sm:py-0 sm:px-10">
+    <Container class="px-[12%] bg-[#DCD5CA] my-3">
+      <div class="">
+        <div class="flex justify-between sm:flex-row">
+          {features.map(({ icon: id = "Truck", title }) => (
+            <div class="flex flex-row gap-1 py-3 border-none justify-center">
               <Icon
                 id={id}
-                width={40}
-                height={40}
-                strokeWidth={2}
+                width={34}
+                height={34}
+                strokeWidth={1}
+                class="text-[#6e6a64]"
               />
-              <div class="flex flex-col gap-2">
-                <Text variant="heading-3">{title}</Text>
-                <Text tone="subdued" variant="caption">
-                  {description}
-                </Text>
+              <div class="flex flex-col gap-2 justify-center items-center">
+                <Text variant="caption" class="text-[#6e6a64] text-sm">{title}</Text> 
               </div>
             </div>
           ))}
