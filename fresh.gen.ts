@@ -509,6 +509,20 @@ const manifest: DecoManifest = {
             ],
             "title": "Address",
           },
+          "imageOne": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Image One",
+          },
+          "imageTwo": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Image Two",
+          },
         },
         "required": [],
       },

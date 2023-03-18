@@ -3,7 +3,7 @@ import Icon from "$store/components/ui/Icon.tsx";
 
 function Social() {
   return (
-    <ul class="flex w-[240px] gap-7">
+    <ul class="hidden lg:flex w-[240px] gap-7">
       <Text class="text-[#505050] leading-3 text-uppercase text-[12px]">
         Follow us
       </Text>

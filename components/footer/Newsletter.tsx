@@ -22,17 +22,17 @@ function Newsletter() {
           </Text>
         </Text>
       </div>
-      <form class="flex flex-1 flex-row items-center gap-2 font-body text-body w-full sm:w-[408px]">
+      <form class="flex flex-1 flex-col lg:flex-row items-center gap-2 font-body text-body w-full w-full sm:w-[408px]">
         <input
-          class="py-2 px-3 flex-grow bg-footer text-[#757575] border-b-1 focus:outline-none bg-transparent text-xs"
-          placeholder="nome"
+          class="w-full py-2 px-3 flex-grow bg-footer text-[#757575] border-b-1 focus:outline-none bg-transparent text-xs lg:text-lowercase"
+          placeholder="Nome"
         />
         <input
-          class="py-2 px-3 flex-grow bg-footer text-[#757575] border-b-1 focus:outline-none bg-transparent text-xs"
-          placeholder="e-mail"
+          class="w-full py-2 px-3 flex-grow bg-footer text-[#757575] border-b-1 focus:outline-none bg-transparent text-xs lg:text-lowercase"
+          placeholder="E-mail"
         />
         <button
-          class="flex items-center justify-center py-2 px-3 bg-interactive-inverse rounded focus:outline-none bg-[#A07653] text-xs text-white font-semibold w-[100px] p-[14px] h-[40px]"
+          class="mt-8 lg:mt-0 w-full border flex items-center justify-center py-2 px-3 bg-interactive-inverse lg:rounded focus:outline-none lg:bg-[#A07653] text-xs lg:text-white font-semibold lg:w-[100px] p-[14px] h-[40px]"
           type="bgutton" // prevent form's default behavior
         >
           Enviar
