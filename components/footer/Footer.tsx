@@ -16,7 +16,7 @@ export type StringItem = {
 export type Item = StringItem | IconItem;
 
 export interface Props {
-  text?: string;
+  address?: string;
 }
 
 function FooterContainer(
@@ -41,7 +41,7 @@ function MenuContainer(
   );
 }
 
-function Footer({ text }: Props) {
+function Footer({ address }: Props) {
   return (
     <footer class="w-full bg-white flex flex-col divide-y-1 divide-default">
       <div>
@@ -55,7 +55,7 @@ function Footer({ text }: Props) {
               <Menu />
               <Social />
             </MenuContainer>
-            <Info text={text} />
+            <Info address={address} />
           </FooterContainer>
         </Container>
       </div>

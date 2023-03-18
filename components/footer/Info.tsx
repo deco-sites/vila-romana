@@ -2,14 +2,14 @@ import Text from "$store/components/ui/Text.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 
 export interface Props {
-  text?: string;
+  address?: string;
 }
 
-function Info({ text }: Props) {
+function Info({ address }: Props) {
   return (
     <div class="flex items-center justify-center mt-6 px-[2%]">
       <Text class="text-[13px] text-[#949494] flex-1 leading-[13px] text-center">
-        {text ??
+        {address ??
           "KASLO COMERCIO DE VESTUARIO LTDA / CNPJ: 11.593.303/0021-25 / Rua: Guilherme Luiz de Carvalho, 163 - Vila Menck - Osasco - SP - 06288-220"}
       </Text>
 
