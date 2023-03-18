@@ -43,7 +43,7 @@ function FeatureHighlights(
           ))}
         </div>
       </div>
-    </Container>
+    </div>
   );
 }
 
