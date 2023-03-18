@@ -510,17 +510,13 @@ const manifest: DecoManifest = {
             "title": "Address",
           },
           "imageOne": {
-            "type": [
-              "string",
-              "null",
-            ],
+            "format": "image-uri",
+            "type": "string",
             "title": "Image One",
           },
           "imageTwo": {
-            "type": [
-              "string",
-              "null",
-            ],
+            "format": "image-uri",
+            "type": "string",
             "title": "Image Two",
           },
         },

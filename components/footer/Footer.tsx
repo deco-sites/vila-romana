@@ -1,5 +1,6 @@
 import { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import Container from "$store/components/ui/Container.tsx";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 import Newsletter from "$store/components/footer/Newsletter.tsx";
 import Menu from "$store/components/footer/Menu.tsx";
@@ -17,8 +18,8 @@ export type Item = StringItem | IconItem;
 
 export interface Props {
   address?: string;
-  imageOne?: string;
-  imageTwo?: string;
+  imageOne?: LiveImage;
+  imageTwo?: LiveImage;
 }
 
 function FooterContainer(
@@ -44,6 +45,9 @@ function MenuContainer(
 }
 
 function Footer({ address, imageOne, imageTwo }: Props) {
+  console.log("imageOne", imageOne);
+  console.log("imageTwo", imageTwo);
+
   return (
     <footer class="w-full bg-white flex flex-col divide-y-1 divide-default">
       <div>

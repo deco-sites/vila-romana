@@ -1,13 +1,14 @@
 import Text from "$store/components/ui/Text.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
-import Image from "deco-sites/std/components/Image.tsx";
 import MenuItem from "$store/components/footer/MenuItem.tsx";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import { Picture } from "deco-sites/std/components/Picture.tsx";
 
 import { useState } from "preact/hooks";
 
 export interface Props {
-  imageOne?: string;
-  imageTwo?: string;
+  imageOne?: LiveImage;
+  imageTwo?: LiveImage;
 }
 
 function Menu({ imageOne, imageTwo }: Props) {
@@ -158,16 +159,16 @@ function Menu({ imageOne, imageTwo }: Props) {
                 <MenuItem title="Parcelamento em até 6x sem juros" />
                 <MenuItem title="Parcela mínima R$ 100,00" />
                 <MenuItem title="Transferência bancária" />
-                {
-                  /* <Image
-                  class="p-6"
-                  src={PayMee}
-                  alt={"PayMee"}
-                  width={321}
-                  height={92}
-                  loading="lazy"
-                /> */
-                }
+                <Picture>
+                  <img
+                    class="w-full"
+                    sizes="(max-width: 640px) 100vw, 30vw"
+                    src={imageOne}
+                    alt={"Teste"}
+                    decoding="async"
+                    loading="lazy"
+                  />
+                </Picture>
               </ul>
             </div>
           )}
