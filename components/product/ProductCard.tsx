@@ -6,17 +6,28 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
+import { useState } from "preact/hooks";
+
+type SizesProps = {
+  product: Product;
+  selected: string | null;
+  onSelected: (value: string) => void;
+};
 
 /**
  * A simple, inplace sku selector to be displayed once the user hovers the product card
  * It takes the user to the pdp once the user clicks on a given sku. This is interesting to
  * remove JS from the frontend
  */
-function Sizes(product: Product) {
+function Sizes({ product, selected, onSelected }: SizesProps) {
   const possibilities = useVariantPossibilities(product);
   const options = Object.entries(
     possibilities["TAMANHO"] ?? possibilities["Tamanho"] ?? {},
   ).splice(0, 5);
+
+  function handleClick(url: string) {
+    onSelected(url);
+  }
 
   return (
     <ul class="flex justify-center flex-col gap-2">
@@ -26,14 +37,15 @@ function Sizes(product: Product) {
 
       <div class="flex gap-2">
         {options.map(([url, value]) => (
-          <a href={url}>
-            <Avatar
-              class="px-2 rounded-full border-transparent border-[1px] hover:border-brow-500"
-              variant="idempotent"
-              content={value}
-              disabled={url === product.url}
-            />
-          </a>
+          <button
+            class={`flex justify-center items-center px-2 rounded-full border-[1px] hover:border-brow-500 ${
+              selected === url ? "border-brow-500" : "border-transparent"
+            }`}
+            onClick={() => handleClick(url)}
+            // disabled={url === product.url}
+          >
+            {value}
+          </button>
         ))}
       </div>
     </ul>
@@ -57,6 +69,8 @@ function ProductCard({ product, preload }: Props) {
   const [front, back] = images ?? [];
   const { listPrice, price, seller } = useOffer(offers);
 
+  const [selected, setSelected] = useState<string | null>(null);
+
   const priceInstallment = product.offers?.offers[0]?.priceSpecification.filter(
     (offer) => offer.name === "Visa",
   ).at(-1);
@@ -66,7 +80,7 @@ function ProductCard({ product, preload }: Props) {
       id={`product-card-${productID}`}
       class="w-full group"
     >
-      <a href={url} aria-label="product link">
+      <div aria-label="product link">
         <div class="relative w-full">
           <Image
             src={back?.url ?? front.url!}
@@ -87,20 +101,18 @@ function ProductCard({ product, preload }: Props) {
             sizes="(max-width: 640px) 50vw, 20vw"
           />
           {seller && (
-            <div
-              class="absolute bottom-0 hidden sm:group-hover:flex flex-col  w-full p-2 bg-opacity-10 p-5"
-              style={{
-                backgroundColor: "hsla(0,0%,100%,.9);",
-                backdropFilter: "blur(2px)",
-              }}
-            >
+            <div class="absolute bottom-0 hidden sm:group-hover:flex flex-col bg-white w-full p-2 p-5">
               <div class="text-center text-xxs text-gray-700">
                 Ref: {product.isVariantOf?.model}
               </div>
-              <Sizes {...product} />
+              <Sizes
+                product={product}
+                selected={selected}
+                onSelected={setSelected}
+              />
               <Button
                 as="a"
-                href={product.url}
+                href={selected || product.url}
                 variant="simple"
                 class="mt-3 bg-green-700 rounded-md hover:bg-green-900 w-[65%] m-auto text-white"
               >
@@ -130,21 +142,22 @@ function ProductCard({ product, preload }: Props) {
             </Text>
           </div>
 
-          {priceInstallment?.billingIncrement !== price && (
+          {priceInstallment?.billingIncrement &&
+            priceInstallment.billingIncrement !== price && (
             <div class="flex items-center gap-2">
               <Text
                 class="text-sm text-gray-700"
                 variant="caption"
               >
-                {priceInstallment?.billingDuration}X de {formatPrice(
-                  priceInstallment?.billingIncrement,
+                {priceInstallment.billingDuration}X de {formatPrice(
+                  priceInstallment.billingIncrement,
                   offers!.priceCurrency!,
                 )} sem juros
               </Text>
             </div>
           )}
         </div>
-      </a>
+      </div>
     </div>
   );
 }

@@ -1,11 +1,12 @@
 import { useEffect } from "preact/hooks";
-import { useMediaQuery } from "../../hooks/useMediaQuery.ts";
+import { useMediaQuery } from "$store/hooks/useMediaQuery.ts";
 
 interface Props {
   rootId: string;
   behavior?: "smooth" | "auto";
   interval?: number;
   showItems?: number[];
+  match?: boolean;
 }
 
 const ATTRIBUTES = {
@@ -47,7 +48,7 @@ const isHTMLElement = (x: Element): x is HTMLElement =>
   // deno-lint-ignore no-explicit-any
   typeof (x as any).offsetLeft === "number";
 
-const setup = ({ rootId, behavior, interval, showItems }: Props) => {
+const setup = ({ rootId, behavior, interval, showItems, match }: Props) => {
   const root = document.getElementById(rootId);
   const slider = root?.querySelector(`[${ATTRIBUTES["data-slider"]}]`);
   const items = root?.querySelectorAll<HTMLLIElement>(
@@ -67,12 +68,10 @@ const setup = ({ rootId, behavior, interval, showItems }: Props) => {
   }
 
   if (showItems && showItems.length > 0) {
-    const matches = window.matchMedia("(max-width: 768px)");
-
     for (let index = 0; index < items.length; index++) {
       const item = items.item(index);
 
-      if (matches.matches) {
+      if (match) {
         item.style.width = `${Math.round(slider.clientWidth / showItems[0])}px`;
       } else {
         item.style.width = `${Math.round(slider.clientWidth / showItems[1])}px`;
@@ -87,8 +86,6 @@ const setup = ({ rootId, behavior, interval, showItems }: Props) => {
     for (let index = 0; index < items.length; index++) {
       const item = items.item(index);
       const rect = item.getBoundingClientRect();
-
-      console.log(showItems, "OPAA");
 
       const ratio = intersectionX(
         rect,
@@ -190,11 +187,14 @@ const setup = ({ rootId, behavior, interval, showItems }: Props) => {
 function Slider(
   { rootId, behavior = "smooth", interval, showItems }: Props,
 ) {
-  useEffect(() => setup({ rootId, behavior, interval, showItems }), [
+  const match = useMediaQuery("(max-width: 768px)");
+
+  useEffect(() => setup({ rootId, behavior, interval, showItems, match }), [
     rootId,
     behavior,
     interval,
     showItems,
+    match,
   ]);
 
   return <div data-slider-controller-js />;
