@@ -1,4 +1,5 @@
 import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
+import { useMediaQuery } from "$store/hooks/useMediaQuery.ts";
 import Text from "$store/components/ui/Text.tsx";
 import Container from "$store/components/ui/Container.tsx";
 
@@ -24,11 +25,15 @@ function FeatureHighlights(
   { features }: Props,
 ) {
   return (
-    <Container class="px-[12%] bg-[#DCD5CA] my-3">
+    <div class="sm:px-0 sm:py-4 bg-beige-500 my-3">
       <div class="">
-        <div class="flex justify-between sm:flex-row">
+        <div class="flex sm:mx-0 overflow-x-auto">
           {features.map(({ icon: id = "Truck", title }) => (
-            <div class="flex flex-row gap-1 py-3 border-none justify-center">
+            <div
+              class={`flex flex-row justify-center min-w-[100vw] sm:min-w-[${
+                100 / features.length
+              }%]  items-center gap-4 py-6 sm:py-0 sm:px-10 text-gray-800`}
+            >
               <Icon
                 id={id}
                 width={34}
@@ -37,7 +42,9 @@ function FeatureHighlights(
                 class="text-[#6e6a64]"
               />
               <div class="flex flex-col gap-2 justify-center items-center">
-                <Text variant="caption" class="text-[#6e6a64] text-sm">{title}</Text> 
+                <Text variant="caption" class="text-[#6e6a64] text-sm">
+                  {title}
+                </Text>
               </div>
             </div>
           ))}
