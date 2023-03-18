@@ -16,20 +16,26 @@ function Sizes(product: Product) {
   const possibilities = useVariantPossibilities(product);
   const options = Object.entries(
     possibilities["TAMANHO"] ?? possibilities["Tamanho"] ?? {},
-  );
+  ).splice(0, 5);
 
   return (
-    <ul class="flex justify-center items-center gap-2">
-      {options.map(([url, value]) => (
-        <a href={url}>
-          <Avatar
-            class="bg-default"
-            variant="abbreviation"
-            content={value}
-            disabled={url === product.url}
-          />
-        </a>
-      ))}
+    <ul class="flex justify-center flex-col gap-2">
+      <div class="text-gray-900 text-xs">
+        Tamanho
+      </div>
+
+      <div class="flex gap-2">
+        {options.map(([url, value]) => (
+          <a href={url}>
+            <Avatar
+              class="px-2 rounded-full border-transparent border-[1px] hover:border-brow-500"
+              variant="idempotent"
+              content={value}
+              disabled={url === product.url}
+            />
+          </a>
+        ))}
+      </div>
     </ul>
   );
 }
@@ -51,6 +57,10 @@ function ProductCard({ product, preload }: Props) {
   const [front, back] = images ?? [];
   const { listPrice, price, seller } = useOffer(offers);
 
+  const priceInstallment = product.offers?.offers[0]?.priceSpecification.filter(
+    (offer) => offer.name === "Visa",
+  ).at(-1);
+
   return (
     <div
       id={`product-card-${productID}`}
@@ -59,7 +69,7 @@ function ProductCard({ product, preload }: Props) {
       <a href={url} aria-label="product link">
         <div class="relative w-full">
           <Image
-            src={front.url!}
+            src={back?.url ?? front.url!}
             alt={front.alternateName}
             width={200}
             height={279}
@@ -69,7 +79,7 @@ function ProductCard({ product, preload }: Props) {
             sizes="(max-width: 640px) 50vw, 20vw"
           />
           <Image
-            src={back?.url ?? front.url!}
+            src={front.url!}
             alt={back?.alternateName ?? front.alternateName}
             width={200}
             height={279}
@@ -78,14 +88,24 @@ function ProductCard({ product, preload }: Props) {
           />
           {seller && (
             <div
-              class="absolute bottom-0 hidden sm:group-hover:flex flex-col gap-2 w-full p-2 bg-opacity-10"
+              class="absolute bottom-0 hidden sm:group-hover:flex flex-col  w-full p-2 bg-opacity-10 p-5"
               style={{
-                backgroundColor: "rgba(255, 255, 255, 0.2)",
+                backgroundColor: "hsla(0,0%,100%,.9);",
                 backdropFilter: "blur(2px)",
               }}
             >
+              <div class="text-center text-xxs text-gray-700">
+                Ref: {product.isVariantOf?.model}
+              </div>
               <Sizes {...product} />
-              <Button as="a" href={product.url}>Visualizar Produto</Button>
+              <Button
+                as="a"
+                href={product.url}
+                variant="simple"
+                class="mt-3 bg-green-700 rounded-md hover:bg-green-900 w-[65%] m-auto text-white"
+              >
+                Comprar
+              </Button>
             </div>
           )}
         </div>
@@ -95,20 +115,34 @@ function ProductCard({ product, preload }: Props) {
             class="overflow-hidden overflow-ellipsis whitespace-nowrap"
             variant="caption"
           >
-            {name}
+            {product.isVariantOf?.name}
+          </Text>
+
+          <Text
+            class="text-xxs text-gray-700"
+            variant="caption"
+          >
+            Ref: {product.isVariantOf?.model}
           </Text>
           <div class="flex items-center gap-2">
-            <Text
-              class="line-through"
-              variant="list-price"
-              tone="subdued"
-            >
-              {formatPrice(listPrice, offers!.priceCurrency!)}
-            </Text>
-            <Text variant="caption" tone="price">
+            <Text class="text-sm text-brow-500" variant="caption" tone="price">
               {formatPrice(price, offers!.priceCurrency!)}
             </Text>
           </div>
+
+          {priceInstallment?.billingIncrement !== price && (
+            <div class="flex items-center gap-2">
+              <Text
+                class="text-sm text-gray-700"
+                variant="caption"
+              >
+                {priceInstallment?.billingDuration}X de {formatPrice(
+                  priceInstallment?.billingIncrement,
+                  offers!.priceCurrency!,
+                )} sem juros
+              </Text>
+            </div>
+          )}
         </div>
       </a>
     </div>

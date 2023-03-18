@@ -42,6 +42,17 @@ const options: Omit<Options, "selfURL"> = {
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
+        "brow": {
+          "500": "#a07653",
+        },
+        "gray": {
+          "700": "#898989",
+          "900": "#505050",
+        },
+        "green": {
+          "700": "#7a983e",
+          "900": "#54682a",
+        },
       },
       textColor: {
         "default": "#161616",
@@ -73,6 +84,7 @@ const options: Omit<Options, "selfURL"> = {
         "body": ["16px", "20px"],
         "caption": ["13px", "16px"],
         "list-price": ["10px", "20px"],
+        "xxs": "10px",
       },
       fontWeight: {
         "heading-1": "500",
