@@ -48,7 +48,11 @@ const options: Omit<Options, "selfURL"> = {
         },
         "gray": {
           "700": "#898989",
+          "800": "#6E6A64",
           "900": "#505050",
+        },
+        "beige": {
+          "500": "#DCD5CA",
         },
         "green": {
           "700": "#7a983e",
