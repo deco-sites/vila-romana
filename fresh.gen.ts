@@ -683,6 +683,41 @@ const manifest: DecoManifest = {
         "title": " Header",
         "type": "object",
         "properties": {
+          "logo": {
+            "title": "Logo",
+            "type": "object",
+            "properties": {
+              "src": {
+                "format": "image-uri",
+                "type": "string",
+                "title": "Src",
+              },
+              "alt": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Alt",
+              },
+              "title": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Title",
+              },
+              "url": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Url",
+              },
+            },
+            "required": [
+              "src",
+            ],
+          },
           "alerts": {
             "type": "array",
             "items": {
@@ -840,6 +875,7 @@ const manifest: DecoManifest = {
           },
         },
         "required": [
+          "logo",
           "alerts",
         ],
       },
