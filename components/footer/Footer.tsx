@@ -15,14 +15,9 @@ export type StringItem = {
 
 export type Item = StringItem | IconItem;
 
-export type Section = {
-  label: string;
-  children: Item[];
-};
-
-const isIcon = (item: Item): item is IconItem =>
-  // deno-lint-ignore no-explicit-any
-  typeof (item as any)?.icon === "string";
+export interface Props {
+  text?: string;
+}
 
 function FooterContainer(
   { children, class: _class = "" }: {
@@ -46,11 +41,7 @@ function MenuContainer(
   );
 }
 
-export interface Props {
-  sections?: Section[];
-}
-
-function Footer({ sections = [] }: Props) {
+function Footer({ text }: Props) {
   return (
     <footer class="w-full bg-white flex flex-col divide-y-1 divide-default">
       <div>
@@ -64,7 +55,7 @@ function Footer({ sections = [] }: Props) {
               <Menu />
               <Social />
             </MenuContainer>
-            <Info />
+            <Info text={text} />
           </FooterContainer>
         </Container>
       </div>
