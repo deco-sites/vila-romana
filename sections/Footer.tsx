@@ -4,6 +4,7 @@ export type {
   Item,
   Props,
   Section,
-  StringItem,
+  StringItem
 } from "$store/components/footer/Footer.tsx";
+export type { Image as LiveImage } from "deco-sites/std/components/types.ts"; 
 export type { AvailableIcons } from "$store/components/ui/Icon.tsx";

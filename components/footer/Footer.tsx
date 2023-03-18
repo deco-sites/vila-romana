@@ -1,6 +1,8 @@
 import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import Text from "$store/components/ui/Text.tsx";
 import Container from "$store/components/ui/Container.tsx";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+
 
 import Newsletter from "./Newsletter.tsx";
 import type { ComponentChildren } from "preact";
@@ -10,6 +12,7 @@ export type StringItem = {
   label: string;
   href: string;
 };
+
 
 export type Item = StringItem | IconItem;
 

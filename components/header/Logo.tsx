@@ -14,10 +14,11 @@ function Logo({ logo }: { logo: ILogo }) {
     <a href={url} title={title} class={`inline-flex items-center`}>
       <Picture class="">
         <img
-          class="object-cover w-full sm:h-full"
+          class="object-cover sm:h-full"
           src={src}
           title={title}
           alt={alt}
+          width={238}
         />
       </Picture>
     </a>

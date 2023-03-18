@@ -3,12 +3,14 @@ import type { JSX } from "preact";
 
 type Props = JSX.IntrinsicElements["ul"] & {
   snap?: string;
+  showItems?: number;
 };
 
 function Slider({
   children,
   snap = "snap-center",
   class: _class = "gap-6 scrollbar-none",
+  showItems = 3,
   ...props
 }: Props) {
   return (
@@ -20,7 +22,7 @@ function Slider({
       {Children.map(children, (child, index) => (
         <li
           data-slider-item={index}
-          class={snap}
+          class="snap h-full"
         >
           {child}
         </li>
