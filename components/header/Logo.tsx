@@ -11,7 +11,11 @@ export interface ILogo {
 function Logo({ logo }: { logo: ILogo }) {
   const { src, alt, title, url } = logo;
   return (
-    <a href={url} title={title} class={`inline-flex items-center`}>
+    <a
+      href={url}
+      title={title}
+      class={`inline-flex items-center w-[60%] md:w-auto`}
+    >
       <Picture class="">
         <img
           class="object-cover sm:h-full"

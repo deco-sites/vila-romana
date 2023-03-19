@@ -25,7 +25,7 @@ function Navbar({ logo, items, searchbar }: {
 
         <Logo logo={logo} />
 
-        <div class="flex gap-1">
+        <div class="flex gap-1 w-[20%] md:w-auto">
           <HeaderButton variant="search" />
           <HeaderButton variant="cart" />
         </div>
