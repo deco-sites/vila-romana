@@ -30,7 +30,7 @@ function Menu({ imageOne, imageTwo }: Props) {
       />
 
       <ul
-        class={`flex w-4/5 flex-col lg:flex-row lg:ml-[30px] w-full pt-2 px-[2%] ${
+        class={`flex w-4/5 flex-1 flex-col lg:flex-row lg:ml-[30px] w-full pt-2 px-[2%] ${
           menuOpen ? "items-baseline" : "items-center"
         }`}
       >
