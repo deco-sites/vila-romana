@@ -49,13 +49,13 @@ function Details({ page }: { page: ProductDetailsPage }) {
   console.log({ product });
 
   return (
-    <Container class="py-0 mt-44 bg-[#f6f6f6] pb-10">
+    <Container class="py-0 mt-20 md:mt-44 bg-[#f6f6f6] pb-10">
       <Breadcrumb
         itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
       />
       <div class="flex flex-col gap-4 sm:flex-row sm:gap-10">
         {/* Image Gallery */}
-        <div class="flex flex-row flex-wrap overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2 sm:w-[75%]">
+        <div class="flex flex-row md:flex-wrap overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2  w-[100%] max-w-full overflow-auto md:w-[75%]">
           {images?.map((img, index) => (
             <Image
               style={{ aspectRatio: "665 / 1013" }}
@@ -72,7 +72,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
           ))}
         </div>
         {/* Product Info */}
-        <div class="flex-auto px-4 sm:px-0 w-[25%]">
+        <div class="flex-auto px-4 sm:px-0 w-[100%] md:w-[25%] ">
           {/* Breadcrumb */}
           {/* Code and name */}
           <div class="mt-4 sm:mt-8">
@@ -86,7 +86,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
             </div>
           </div>
           {/* Prices */}
-          <div class="mt-4">
+          <div class="mt-4 flex flex-row md:flex-col justify-between">
             <div class="flex flex-col gap-0 items-start">
               <p class="line-through text-uppercase text-[12px] font-thin text-[#888]">
                 De: {formatPrice(listPrice, offers!.priceCurrency!)}
@@ -96,16 +96,16 @@ function Details({ page }: { page: ProductDetailsPage }) {
                 {" "}
                 {formatPrice(price, offers!.priceCurrency!)}
               </p>
+              {/* MOCK */}
+              <p class="text-[12px] text-uppercase font-thin">
+                Até 6X no cartão
+              </p>
             </div>
-            {/* MOCK */}
-            <p class="text-[12px] text-uppercase font-thin">
-              Até 6X no cartão
-            </p>
-          </div>
-          {/* Sku Selector */}
-          <div class="mt-4 sm:mt-6">
+          <div class="md:mt-4 sm:mt-6">
             <ProductSelector product={product} />
           </div>
+          </div>
+          {/* Sku Selector */}
           {/* Add to Cart and Favorites button */}
           <div class="mt-4 sm:mt-10 flex flex-col gap-2">
             {seller && (

@@ -43,7 +43,7 @@ function Sizes({ product, selected, onSelected }: SizesProps) {
               selected === url ? "border-brow-500" : "border-transparent"
             }`}
             onClick={() => handleClick(url)}
-            // disabled={url === product.url}
+            disabled={url === product.url}
           >
             {value}
           </button>
@@ -89,26 +89,26 @@ function ProductCard({ product, preload }: Props) {
         aria-label="product link"
       >
         <div class="relative w-full">
-        <a href={url}>
-          <Image
-            src={back?.url ?? front.url!}
-            alt={front.alternateName}
-            width={200}
-            height={279}
-            class="rounded w-full group-hover:hidden"
-            preload={preload}
-            loading={preload ? "eager" : "lazy"}
-            sizes="(max-width: 640px) 50vw, 20vw"
-          />
-          <Image
-            src={front.url!}
-            alt={back?.alternateName ?? front.alternateName}
-            width={200}
-            height={279}
-            class="rounded w-full hidden group-hover:block"
-            sizes="(max-width: 640px) 50vw, 20vw"
-          />
-        </a>
+          <a href={url}>
+            <Image
+              src={back?.url ?? front.url!}
+              alt={front.alternateName}
+              width={200}
+              height={279}
+              class="rounded w-full min-w-[370px] group-hover:hidden"
+              preload={preload}
+              loading={preload ? "eager" : "lazy"}
+              sizes="(max-width: 640px) 50vw, 20vw"
+            />
+            <Image
+              src={front.url!}
+              alt={back?.alternateName ?? front.alternateName}
+              width={200}
+              height={279}
+              class="rounded w-full min-w-[370px] hidden group-hover:block"
+              sizes="(max-width: 640px) 50vw, 20vw"
+            />
+          </a>
           {seller && (
             <div class="absolute bottom-0 hidden sm:group-hover:flex flex-col bg-white w-full p-2 p-5">
               <div class="text-center text-xxs text-gray-700">

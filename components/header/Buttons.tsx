@@ -10,6 +10,7 @@ function SearchButton() {
     <Button
       variant="icon"
       aria-label="search icon button"
+      class="p-0"
       onClick={() => {
         displaySearchbar.value = !displaySearchbar.peek();
       }}
@@ -25,6 +26,7 @@ function MenuButton() {
   return (
     <Button
       variant="icon"
+      class="w-[20%] md:w-auto"
       aria-label="open menu"
       onClick={() => {
         displayMenu.value = true;
@@ -52,7 +54,7 @@ function CartButton() {
     >
       <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
       {totalItems && (
-        <span class="absolute text-[9px] right-0 top-0 rounded-full bg-badge text-white w-4 h-4 flex items-center justify-center">
+        <span class="absolute text-[9px] right-0 bottom-0 rounded-full bg-[#a07653] text-white w-4 h-4 flex items-center justify-center">
           {totalItems}
         </span>
       )}

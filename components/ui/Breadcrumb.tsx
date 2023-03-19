@@ -28,7 +28,7 @@ function Breadcrumb({ itemListElement = [] }: Props) {
       <Item name="Home" item="/" /> 
       {itemListElement.map((item) => (
         <>
-          <li class="mx-3 text-[12px] text-[#888]">
+          <li class="mx-1 md:mx-3 text-[12px] text-[#888] ">
             |
           </li>
           <Item {...item} />
