@@ -19,7 +19,7 @@ function ProductCompositeShelf({
   title,
   productsCollections,
 }: Props) {
-  const id = useId();
+  const id = "text-5666";
 
   const titles = productsCollections.map((collection) => collection.title);
 
