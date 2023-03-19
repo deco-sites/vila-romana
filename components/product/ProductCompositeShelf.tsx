@@ -53,7 +53,9 @@ function ProductCompositeShelf({
                 <Text
                   variant="body"
                   class={`italic font-light ${
-                    title === selectedTitle ? "text-brow-500 font-normal" : ""
+                    title === selectedTitle
+                      ? "text-brow-500 font-normal after after:m-auto after:mt-0.5 after:block after:w-4 after:bg-brow-500 after:h-0.5"
+                      : ""
                   }`}
                 >
                   {title}
