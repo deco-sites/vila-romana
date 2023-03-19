@@ -7,6 +7,7 @@ import { formatPrice } from "$store/sdk/format.ts";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
 import { useState } from "preact/hooks";
+import { useMediaQuery } from "$store/hooks/useMediaQuery.ts";
 
 type SizesProps = {
   product: Product;
@@ -68,6 +69,7 @@ function ProductCard({ product, preload }: Props) {
   } = product;
   const [front, back] = images ?? [];
   const { listPrice, price, seller } = useOffer(offers);
+  const matches = useMediaQuery("(max-width: 768px)");
 
   const [selected, setSelected] = useState<string | null>(null);
 
@@ -80,7 +82,12 @@ function ProductCard({ product, preload }: Props) {
       id={`product-card-${productID}`}
       class="w-full group"
     >
-      <div aria-label="product link">
+      <a
+        href={matches ? product.url : undefined}
+        role={matches ? "link" : ""}
+        as={matches ? "a" : "div"}
+        aria-label="product link"
+      >
         <div class="relative w-full">
           <Image
             src={back?.url ?? front.url!}
@@ -157,7 +164,7 @@ function ProductCard({ product, preload }: Props) {
             </div>
           )}
         </div>
-      </div>
+      </a>
     </div>
   );
 }

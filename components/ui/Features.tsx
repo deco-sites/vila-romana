@@ -1,7 +1,5 @@
 import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
-import { useMediaQuery } from "$store/hooks/useMediaQuery.ts";
 import Text from "$store/components/ui/Text.tsx";
-import Container from "$store/components/ui/Container.tsx";
 
 export interface Feature {
   /**
