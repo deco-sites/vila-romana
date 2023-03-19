@@ -8,15 +8,21 @@ function Social() {
         Follow us
       </Text>
 
-      <a href="#">
+      <a
+        href="https://www.facebook.com/vilaromanaoficial"
+        aria-label="Facebook"
+      >
         <Icon id="Facebook" width="15" height="12" fill="#a07653" />
       </a>
 
-      <a href="#">
+      <a
+        href="https://www.instagram.com/vilaromanaoficial/"
+        aria-label="Instagram"
+      >
         <Icon id="Instagram" width="12" height="12" fill="#a07653" />
       </a>
 
-      <a href="#">
+      <a href="https://www.youtube.com/user/VILAROMANABR" aria-label="Youtube">
         <Icon id="YouTube" width="14" height="11" fill="#a07653" />
       </a>
     </ul>

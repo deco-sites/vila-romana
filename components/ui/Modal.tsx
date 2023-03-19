@@ -69,10 +69,28 @@ const Modal = ({
       <section class="pt-6 h-full bg-default flex flex-col">
         <header class="flex px-4 justify-between items-center pb-6 border-b-1 border-default">
           <h1>
-            <Text variant="heading-2">{title}</Text>
+            {title === "Resumo da compra"
+              ? (
+                <Text
+                  variant="bold"
+                  class="text-uppercase !text-sm text-[#505050] lg:!text-base lg:tracking-[1px]"
+                >
+                  {title}
+                </Text>
+              )
+              : <Text variant="heading-2">{title}</Text>}
           </h1>
           <Button variant="icon" onClick={onClose}>
-            <Icon id="XMark" width={20} height={20} strokeWidth={2} />
+            {title === "Resumo da compra" && (
+              <Text class="text-[#a9a9a9] !text-xs lg:!text-base">Fechar</Text>
+            )}
+            <Icon
+              id="XMark"
+              class={`${title === "Resumo da compra" && "text-[#a9a9a9]"}`}
+              width={title === "Resumo da compra" ? 15 : 20}
+              height={title === "Resumo da compra" ? 15 : 20}
+              strokeWidth={2}
+            />
           </Button>
         </header>
         <div class="overflow-y-auto h-full flex flex-col">

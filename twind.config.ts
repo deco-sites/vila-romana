@@ -159,6 +159,11 @@ const options: Omit<Options, "selfURL"> = {
     },
   }),
   plugins: {
+    after: {
+      "&::after": {
+        content: "''",
+      },
+    },
     backdrop: {
       "&::backdrop": {
         background: "rgba(0, 0, 0, 0.5)",

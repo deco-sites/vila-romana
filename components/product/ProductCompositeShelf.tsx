@@ -9,9 +9,10 @@ import { ResultCollection } from "../../functions/vtexLegacyProductList.ts";
 import { useId, useState } from "preact/hooks";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { HTML } from "deco-sites/std/components/types.ts";
 
 export interface Props {
-  title: string;
+  title: HTML;
   productsCollections: LoaderReturnType<ResultCollection[]>;
 }
 
@@ -19,7 +20,7 @@ function ProductCompositeShelf({
   title,
   productsCollections,
 }: Props) {
-  const id = useId();
+  const id = "text-5666";
 
   const titles = productsCollections.map((collection) => collection.title);
 
@@ -36,7 +37,10 @@ function ProductCompositeShelf({
   return (
     <div class="mt-16">
       <h2 class="text-center row-start-1 col-span-full">
-        <Text variant="heading-2">{title}</Text>
+        <span
+          class="text-center text-xl text-[#505050]"
+          dangerouslySetInnerHTML={{ __html: title }}
+        />
       </h2>
       <div
         id={id}
@@ -53,7 +57,9 @@ function ProductCompositeShelf({
                 <Text
                   variant="body"
                   class={`italic font-light ${
-                    title === selectedTitle ? "text-brow-500 font-normal" : ""
+                    title === selectedTitle
+                      ? "text-brow-500 font-normal after after:m-auto after:mt-0.5 after:block after:w-4 after:bg-brow-500 after:h-0.5"
+                      : ""
                   }`}
                 >
                   {title}

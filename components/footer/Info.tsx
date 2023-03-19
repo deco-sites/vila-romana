@@ -15,12 +15,16 @@ function Info({ address }: Props) {
 
       <ul class="mt-7 lg:mt-0 flex gap-[15px] w-[215px] h-8">
         <li>
-          <a href="https://agenciaeplus.com.br" target="_blank">
+          <a
+            href="https://agenciaeplus.com.br"
+            aria-label="Agencia E-plus"
+            target="_blank"
+          >
             <Icon id="e-Plus" width="110" height="32" />
           </a>
         </li>
         <li>
-          <a href="https://vtex.com" target="_blank">
+          <a href="https://vtex.com" target="_blank" aria-label="VTEX">
             <Icon id="VTEX" width="75" height="30" />
           </a>
         </li>
