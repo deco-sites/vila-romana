@@ -1,4 +1,5 @@
 import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
+import { useMediaQuery } from "$store/hooks/useMediaQuery.ts";
 import Text from "$store/components/ui/Text.tsx";
 import Container from "$store/components/ui/Container.tsx";
 
@@ -14,7 +15,6 @@ export interface Feature {
   /**
    * @description Description and Image alt text
    */
-  description: string;
 }
 
 export interface Props {
@@ -25,28 +25,32 @@ function FeatureHighlights(
   { features }: Props,
 ) {
   return (
-    <Container class="min-h-[280px] p-6 sm:px-0 sm:py-10">
-      <div class="border-default border-1">
-        <div class="flex flex-col justify-evenly sm:flex-row divide-y-1 sm:divide-y-0 sm:divide-x-1 divide-default mx-6 sm:mx-0 sm:my-10">
-          {features.map(({ icon: id = "Truck", title, description }) => (
-            <div class="flex flex-row sm:flex-col gap-4 py-6 sm:py-0 sm:px-10">
+    <div class="sm:px-0 sm:py-4 bg-beige-500 my-3">
+      <div class="">
+        <div class="flex sm:mx-0 overflow-x-auto">
+          {features.map(({ icon: id = "Truck", title }) => (
+            <div
+              class={`flex flex-row justify-center min-w-[100vw] sm:min-w-[${
+                100 / features.length
+              }%]  items-center gap-4 py-6 sm:py-0 sm:px-10 text-gray-800`}
+            >
               <Icon
                 id={id}
-                width={40}
-                height={40}
-                strokeWidth={2}
+                width={34}
+                height={34}
+                strokeWidth={1}
+                class="text-[#6e6a64]"
               />
-              <div class="flex flex-col gap-2">
-                <Text variant="heading-3">{title}</Text>
-                <Text tone="subdued" variant="caption">
-                  {description}
+              <div class="flex flex-col gap-2 justify-center items-center">
+                <Text variant="caption" class="text-[#6e6a64] text-sm">
+                  {title}
                 </Text>
               </div>
             </div>
           ))}
         </div>
       </div>
-    </Container>
+    </div>
   );
 }
 

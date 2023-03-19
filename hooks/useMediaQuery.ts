@@ -3,7 +3,7 @@ import { useEffect, useState } from "preact/hooks";
 export function useMediaQuery(query: string): boolean {
   const getMatches = (query: string): boolean => {
     // Prevents SSR issues
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined" && window.matchMedia) {
       return window.matchMedia(query).matches;
     }
     return false;

@@ -37,7 +37,11 @@ export type AvailableIcons =
   | "e-Plus"
   | "VTEX"
   | "Arrow"
-  | "YouTube";
+  | "YouTube"
+  | "Location"
+  | "Pickup"
+  | "Scissors"
+  | "Return";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

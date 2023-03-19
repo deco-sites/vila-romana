@@ -42,12 +42,17 @@ const options: Omit<Options, "selfURL"> = {
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
+        "header-bg": "rgba(255,255,255,.6)",
         "brow": {
           "500": "#a07653",
         },
         "gray": {
           "700": "#898989",
+          "800": "#6E6A64",
           "900": "#505050",
+        },
+        "beige": {
+          "500": "#DCD5CA",
         },
         "green": {
           "700": "#7a983e",

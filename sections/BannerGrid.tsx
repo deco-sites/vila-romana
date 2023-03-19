@@ -4,7 +4,7 @@ import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 export interface Banner {
   srcMobile: LiveImage;
-  srcDesktop?: LiveImage;
+  srcDesktop: LiveImage;
   /**
    * @description Image alt text
    */
@@ -25,6 +25,19 @@ export interface Props {
     desktop?: number;
   };
   /**
+   * @description Default is square, you can use square or retangular
+   */
+  bannerSize: {
+    mobile?: {
+      width: number,
+      height: number
+    };
+    desktop?: {
+      width: number,
+      height: number
+    };
+  };
+  /**
    * @description Item's border radius in px
    */
   borderRadius: {
@@ -38,10 +51,11 @@ export default function BannnerGrid({
   title,
   itemsPerLine,
   borderRadius,
+  bannerSize,
   banners = [],
 }: Props) {
   return (
-    <Container>
+    <Container class="p-0 mt-5">
       <section class="w-full px-4 md:px-0 mx-auto">
         {title &&
           (
@@ -54,7 +68,7 @@ export default function BannnerGrid({
             </div>
           )}
         <div
-          class={`grid gap-4 md:gap-6 grid-cols-${
+          class={`grid grid-cols-${
             itemsPerLine && itemsPerLine.mobile ? itemsPerLine.mobile : "2"
           } md:grid-cols-${
             itemsPerLine && itemsPerLine.desktop
@@ -77,19 +91,20 @@ export default function BannnerGrid({
                 <Source
                   media="(max-width: 767px)"
                   src={srcMobile}
-                  width={100}
-                  height={100}
+                  width={bannerSize && bannerSize.mobile && bannerSize.mobile.width ? bannerSize.mobile.width : 100}
+                  height={bannerSize && bannerSize.mobile && bannerSize.mobile.height ? bannerSize.mobile.height : 100}
+
                 />
                 <Source
                   media="(min-width: 768px)"
-                  src={srcDesktop ? srcDesktop : srcMobile}
-                  width={250}
-                  height={250}
+                  src={srcDesktop}
+                  width={bannerSize && bannerSize.desktop && bannerSize.desktop.width ? bannerSize.desktop.width : 100}
+                  height={bannerSize && bannerSize.desktop && bannerSize.desktop.height ? bannerSize.desktop.height : 100}
                 />
                 <img
                   class="w-full"
                   sizes="(max-width: 640px) 100vw, 30vw"
-                  src={srcMobile}
+                  src={srcDesktop}
                   alt={alt}
                   decoding="async"
                   loading="lazy"

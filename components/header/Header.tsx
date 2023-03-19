@@ -26,7 +26,16 @@ export interface NavItem {
   };
 }
 
+export interface Logo {
+  src: Image;
+  alt?: string;
+  title?: string;
+  url?: string;
+}
+
 export interface Props {
+  logo: Logo;
+
   alerts: string[];
   /** @title Search Bar */
   searchbar?: SearchbarProps;
@@ -55,6 +64,7 @@ export interface Props {
 
 function Header(
   {
+    logo,
     alerts,
     searchbar: _searchbar,
     products,
@@ -65,10 +75,10 @@ function Header(
 ) {
   const searchbar = { ..._searchbar, products, suggestions, configVTEX };
   return (
-    <header class={`h-[${headerHeight}]`}>
-      <div class="bg-default fixed w-full z-50">
+    <header>
+      <div class="fixed w-full z-50">
         <Alert alerts={alerts} />
-        <Navbar items={navItems} searchbar={searchbar} />
+        <Navbar logo={logo} items={navItems} searchbar={searchbar} />
       </div>
 
       <Modals
