@@ -38,16 +38,15 @@ function MenuContainer(
   },
 ) {
   return (
-    <div class={`flex items-center bg-[#f6f6f6] py-3.5 px-[2%] ${_class}`}>
+    <div
+      class={`flex items-center py-3.5 lg:bg-[#f6f6f6] lg:px-[2%] ${_class}`}
+    >
       {children}
     </div>
   );
 }
 
 function Footer({ address, imageOne, imageTwo }: Props) {
-  console.log("imageOne", imageOne);
-  console.log("imageTwo", imageTwo);
-
   return (
     <footer class="w-full bg-white flex flex-col divide-y-1 divide-default">
       <div>
