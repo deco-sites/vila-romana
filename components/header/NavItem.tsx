@@ -16,7 +16,7 @@ function NavItem({ item }: { item: INavItem }) {
     <li class="group flex items-center relative">
       <a href={href} class="px-4 py-3">
         <Text
-          class=""
+          class="text-uppercase"
           variant="menu"
         >
           {label}
