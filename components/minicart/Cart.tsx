@@ -7,8 +7,7 @@ import { useUI } from "../../sdk/useUI.ts";
 import CartItem from "./CartItem.tsx";
 import Coupon from "./Coupon.tsx";
 
-const CHECKOUT_URL =
-  "https://vilaromana.vtexcommercestable.com.br/checkout";
+const CHECKOUT_URL = "https://vilaromana.vtexcommercestable.com.br/checkout";
 
 function Cart() {
   const { displayCart } = useUI();
@@ -20,6 +19,8 @@ function Cart() {
   );
   const locale = cart.value?.clientPreferencesData.locale;
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
+
+  console.log("cart", cart);
 
   if (cart.value === null) {
     return null;
@@ -47,7 +48,7 @@ function Cart() {
       {/* Cart Items */}
       <ul
         role="list"
-        class="mt-6 px-2 flex-grow-1 overflow-y-auto flex flex-col gap-6"
+        class="pt-6 px-2 flex-grow-1 overflow-y-auto flex flex-col gap-6 bg-[#f6f6f6]"
       >
         {cart.value.items.map((_, index) => (
           <li>
@@ -58,30 +59,18 @@ function Cart() {
 
       {/* Cart Footer */}
       <footer>
-        {/* Subtotal */}
-        <div class="border-t-1 border-default py-4 flex flex-col gap-4">
-          {discounts?.value && (
-            <div class="flex justify-between items-center px-4">
-              <Text variant="caption">Descontos</Text>
-              <Text variant="caption">
-                {formatPrice(discounts.value / 100, currencyCode!, locale)}
-              </Text>
-            </div>
-          )}
-          <Coupon />
-        </div>
         {/* Total */}
         {total?.value && (
           <div class="border-t-1 border-default pt-4 flex flex-col justify-end items-end gap-2 mx-4">
             <div class="flex justify-between items-center w-full">
-              <Text variant="body">Total</Text>
-              <Text variant="heading-3">
+              <Text variant="bold" class="text-[#161616] text-xs">Total</Text>
+              <Text
+                variant="semibold"
+                class="text-[#a07653] text-uppercase text-[13px]"
+              >
                 {formatPrice(total.value / 100, currencyCode!, locale)}
               </Text>
             </div>
-            <Text tone="subdued" variant="caption">
-              Taxas e fretes serão calculados no checkout
-            </Text>
           </div>
         )}
         <div class="p-4">
@@ -91,7 +80,7 @@ function Cart() {
             href={`${CHECKOUT_URL}?orderFormId=${cart.value!.orderFormId}`}
           >
             <Button
-              class="w-full"
+              class="w-full text-[10px] text-uppercase bg-[#7a983e]"
               disabled={loading.value || cart.value.items.length === 0}
             >
               Finalizar Compra

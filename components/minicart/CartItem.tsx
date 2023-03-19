@@ -19,7 +19,6 @@ function CartItem({ index }: Props) {
     imageUrl,
     skuName,
     sellingPrice,
-    listPrice,
     name,
     quantity,
   } = item;
@@ -27,7 +26,7 @@ function CartItem({ index }: Props) {
   const isGift = sellingPrice < 0.01;
 
   return (
-    <div class="flex flex-row justify-between items-start gap-4">
+    <div class="flex flex-row justify-between items-start gap-4 relative">
       <Image
         src={imageUrl}
         alt={skuName}
@@ -36,26 +35,22 @@ function CartItem({ index }: Props) {
         class="object-cover object-center"
       />
       <div class="flex-grow">
-        <Text variant="body">
+        <Text
+          variant="body"
+          class="block truncate max-w-[170px] text-xs lg:max-w-full"
+        >
           {name}
         </Text>
-        <div class="flex items-center gap-2">
-          <Text class="line-through" tone="subdued" variant="list-price">
-            {formatPrice(listPrice / 100, currencyCode!, locale)}
-          </Text>
-          <Text tone="price" variant="caption">
+        <div class="flex flex-col items-baseline">
+          <Text tone="price" variant="bold" class="!text-xs pb-5">
             {isGift
               ? "Grátis"
               : formatPrice(sellingPrice / 100, currencyCode!, locale)}
           </Text>
-        </div>
-        <div class="mt-6 max-w-min">
-          <QuantitySelector
-            disabled={loading.value || isGift}
-            quantity={quantity}
-            onChange={(quantity) =>
-              updateItems({ orderItems: [{ index, quantity }] })}
-          />
+
+          <Text class="text-xs text-[#505050]">Quantidade: {quantity}</Text>
+          <Text class="text-xs text-[#505050]">Tamanho:</Text>
+          <Text class="lg:hidden text-xs text-[#505050]">Cor:</Text>
         </div>
       </div>
       <Button
@@ -63,8 +58,18 @@ function CartItem({ index }: Props) {
         disabled={loading.value || isGift}
         loading={loading.value}
         variant="icon"
+        class="absolute bottom-0 right-0 italic"
       >
-        <Icon id="Trash" width={20} height={20} />
+        <Icon
+          id="XMark"
+          class="text-[#a9a9a9]"
+          width={15}
+          height={20}
+          strokeWidth={2}
+        />
+        <Text class="text-[#a07653] text-[11px] tracking-[0.05px]">
+          Excluir
+        </Text>
       </Button>
     </div>
   );

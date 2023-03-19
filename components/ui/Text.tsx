@@ -19,6 +19,7 @@ type Props = JSX.IntrinsicElements["span"] & {
     | "button"
     | "body"
     | "semibold"
+    | "bold"
     | "caption"
     | "list-price";
 };
