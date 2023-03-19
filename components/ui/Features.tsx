@@ -23,7 +23,7 @@ function FeatureHighlights(
   { features }: Props,
 ) {
   return (
-    <div class="sm:px-0 sm:py-4 bg-beige-500 my-3">
+    <div class="sm:px-0 sm:py-4 bg-beige-500 mt-5">
       <div class="">
         <div class="flex sm:mx-0 overflow-x-auto">
           {features.map(({ icon: id = "Truck", title }) => (

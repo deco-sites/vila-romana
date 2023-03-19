@@ -872,6 +872,7 @@ const manifest: DecoManifest = {
         "type": "object",
         "properties": {
           "title": {
+            "format": "html",
             "type": "string",
             "title": "Title",
           },
