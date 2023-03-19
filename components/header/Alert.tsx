@@ -16,7 +16,7 @@ function Alert({ alerts = [], interval = 5 }: Props) {
   const id = useId();
   const [isVisible, setIsVisible] = useState(true);
 
-   const listenToScroll = () => {
+   const listenToScroll = () => { 
     let heightToHideFrom = 50;
     const winScroll = document.body.scrollTop ||
       document.documentElement.scrollTop;
