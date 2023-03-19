@@ -84,7 +84,6 @@ function ProductCard({ product, preload }: Props) {
     >
       <a
         href={matches ? product.url : undefined}
-        role={matches ? "link" : ""}
         as={matches ? "a" : "div"}
         aria-label="product link"
       >

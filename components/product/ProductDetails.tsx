@@ -46,8 +46,6 @@ function Details({ page }: { page: ProductDetailsPage }) {
   const { price, listPrice, seller, installments } = useOffer(offers);
   const [front, back] = images ?? [];
 
-  console.log({ product });
-
   return (
     <Container class="py-0 mt-20 md:mt-44 bg-[#f6f6f6] pb-10">
       <Breadcrumb
@@ -101,9 +99,9 @@ function Details({ page }: { page: ProductDetailsPage }) {
                 Até 6X no cartão
               </p>
             </div>
-          <div class="md:mt-4 sm:mt-6">
-            <ProductSelector product={product} />
-          </div>
+            <div class="md:mt-4 sm:mt-6">
+              <ProductSelector product={product} />
+            </div>
           </div>
           {/* Sku Selector */}
           {/* Add to Cart and Favorites button */}
