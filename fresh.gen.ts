@@ -16,8 +16,9 @@ import * as $$2 from "./islands/HeaderButton.tsx";
 import * as $$3 from "./islands/HeaderModals.tsx";
 import * as $$4 from "./islands/HeaderSearchMenu.tsx";
 import * as $$5 from "./islands/ProductCard.tsx";
-import * as $$6 from "./islands/SearchControls.tsx";
-import * as $$7 from "./islands/SliderJS.tsx";
+import * as $$6 from "./islands/ProductCompositeShelf.tsx";
+import * as $$7 from "./islands/SearchControls.tsx";
+import * as $$8 from "./islands/SliderJS.tsx";
 import * as $$$0 from "./sections/BannerGrid.tsx";
 import * as $$$1 from "./sections/Carousel.tsx";
 import * as $$$2 from "./sections/CookieConsent.tsx";
@@ -26,35 +27,37 @@ import * as $$$4 from "./sections/Features.tsx";
 import * as $$$5 from "./sections/Footer.tsx";
 import * as $$$6 from "./sections/Header.tsx";
 import * as $$$7 from "./sections/Highlights.tsx";
-import * as $$$8 from "./sections/ProductDetails.tsx";
-import * as $$$9 from "./sections/ProductGallery.tsx";
-import * as $$$10 from "./sections/ProductShelf.tsx";
-import * as $$$11 from "./sections/SearchControls.tsx";
-import * as $$$12 from "./sections/WhatsApp.tsx";
-import * as $$$13 from "deco-sites/std/sections/SEO.tsx";
-import * as $$$14 from "deco-sites/std/sections/SEOPDP.tsx";
-import * as $$$15 from "deco-sites/std/sections/SEOPLP.tsx";
-import * as $$$16 from "deco-sites/std/sections/configOCC.global.tsx";
-import * as $$$17 from "deco-sites/std/sections/configShopify.global.tsx";
-import * as $$$18 from "deco-sites/std/sections/configVTEX.global.tsx";
-import * as $$$$0 from "$live/functions/EffectSelectPage.ts";
-import * as $$$$1 from "$live/functions/MatchDate.ts";
-import * as $$$$2 from "$live/functions/MatchEnvironment.ts";
-import * as $$$$3 from "$live/functions/MatchRandom.ts";
-import * as $$$$4 from "$live/functions/MatchSite.ts";
-import * as $$$$5 from "$live/functions/MatchUserAgent.ts";
-import * as $$$$6 from "deco-sites/std/functions/occProductDetailsPage.ts";
-import * as $$$$7 from "deco-sites/std/functions/shopifyProductDetailsPage.ts";
-import * as $$$$8 from "deco-sites/std/functions/shopifyProductList.ts";
-import * as $$$$9 from "deco-sites/std/functions/shopifyProductListingPage.ts";
-import * as $$$$10 from "deco-sites/std/functions/vtexConfig.ts";
-import * as $$$$11 from "deco-sites/std/functions/vtexLegacyProductDetailsPage.ts";
-import * as $$$$12 from "deco-sites/std/functions/vtexLegacyProductList.ts";
-import * as $$$$13 from "deco-sites/std/functions/vtexLegacyProductListingPage.ts";
-import * as $$$$14 from "deco-sites/std/functions/vtexProductDetailsPage.ts";
-import * as $$$$15 from "deco-sites/std/functions/vtexProductList.ts";
-import * as $$$$16 from "deco-sites/std/functions/vtexProductListingPage.ts";
-import * as $$$$17 from "deco-sites/std/functions/vtexSuggestions.ts";
+import * as $$$8 from "./sections/ProductCompositeShelf.tsx";
+import * as $$$9 from "./sections/ProductDetails.tsx";
+import * as $$$10 from "./sections/ProductGallery.tsx";
+import * as $$$11 from "./sections/ProductShelf.tsx";
+import * as $$$12 from "./sections/SearchControls.tsx";
+import * as $$$13 from "./sections/WhatsApp.tsx";
+import * as $$$14 from "deco-sites/std/sections/SEO.tsx";
+import * as $$$15 from "deco-sites/std/sections/SEOPDP.tsx";
+import * as $$$16 from "deco-sites/std/sections/SEOPLP.tsx";
+import * as $$$17 from "deco-sites/std/sections/configOCC.global.tsx";
+import * as $$$18 from "deco-sites/std/sections/configShopify.global.tsx";
+import * as $$$19 from "deco-sites/std/sections/configVTEX.global.tsx";
+import * as $$$$0 from "./functions/vtexLegacyProductList.ts";
+import * as $$$$1 from "$live/functions/EffectSelectPage.ts";
+import * as $$$$2 from "$live/functions/MatchDate.ts";
+import * as $$$$3 from "$live/functions/MatchEnvironment.ts";
+import * as $$$$4 from "$live/functions/MatchRandom.ts";
+import * as $$$$5 from "$live/functions/MatchSite.ts";
+import * as $$$$6 from "$live/functions/MatchUserAgent.ts";
+import * as $$$$7 from "deco-sites/std/functions/occProductDetailsPage.ts";
+import * as $$$$8 from "deco-sites/std/functions/shopifyProductDetailsPage.ts";
+import * as $$$$9 from "deco-sites/std/functions/shopifyProductList.ts";
+import * as $$$$10 from "deco-sites/std/functions/shopifyProductListingPage.ts";
+import * as $$$$11 from "deco-sites/std/functions/vtexConfig.ts";
+import * as $$$$12 from "deco-sites/std/functions/vtexLegacyProductDetailsPage.ts";
+import * as $$$$13 from "deco-sites/std/functions/vtexLegacyProductList.ts";
+import * as $$$$14 from "deco-sites/std/functions/vtexLegacyProductListingPage.ts";
+import * as $$$$15 from "deco-sites/std/functions/vtexProductDetailsPage.ts";
+import * as $$$$16 from "deco-sites/std/functions/vtexProductList.ts";
+import * as $$$$17 from "deco-sites/std/functions/vtexProductListingPage.ts";
+import * as $$$$18 from "deco-sites/std/functions/vtexSuggestions.ts";
 
 const manifest: DecoManifest = {
   routes: {
@@ -71,8 +74,9 @@ const manifest: DecoManifest = {
     "./islands/HeaderModals.tsx": $$3,
     "./islands/HeaderSearchMenu.tsx": $$4,
     "./islands/ProductCard.tsx": $$5,
-    "./islands/SearchControls.tsx": $$6,
-    "./islands/SliderJS.tsx": $$7,
+    "./islands/ProductCompositeShelf.tsx": $$6,
+    "./islands/SearchControls.tsx": $$7,
+    "./islands/SliderJS.tsx": $$8,
   },
   sections: {
     "./sections/BannerGrid.tsx": $$$0,
@@ -83,37 +87,39 @@ const manifest: DecoManifest = {
     "./sections/Footer.tsx": $$$5,
     "./sections/Header.tsx": $$$6,
     "./sections/Highlights.tsx": $$$7,
-    "./sections/ProductDetails.tsx": $$$8,
-    "./sections/ProductGallery.tsx": $$$9,
-    "./sections/ProductShelf.tsx": $$$10,
-    "./sections/SearchControls.tsx": $$$11,
-    "./sections/WhatsApp.tsx": $$$12,
-    "deco-sites/std/sections/SEO.tsx": $$$13,
-    "deco-sites/std/sections/SEOPDP.tsx": $$$14,
-    "deco-sites/std/sections/SEOPLP.tsx": $$$15,
-    "deco-sites/std/sections/configOCC.global.tsx": $$$16,
-    "deco-sites/std/sections/configShopify.global.tsx": $$$17,
-    "deco-sites/std/sections/configVTEX.global.tsx": $$$18,
+    "./sections/ProductCompositeShelf.tsx": $$$8,
+    "./sections/ProductDetails.tsx": $$$9,
+    "./sections/ProductGallery.tsx": $$$10,
+    "./sections/ProductShelf.tsx": $$$11,
+    "./sections/SearchControls.tsx": $$$12,
+    "./sections/WhatsApp.tsx": $$$13,
+    "deco-sites/std/sections/SEO.tsx": $$$14,
+    "deco-sites/std/sections/SEOPDP.tsx": $$$15,
+    "deco-sites/std/sections/SEOPLP.tsx": $$$16,
+    "deco-sites/std/sections/configOCC.global.tsx": $$$17,
+    "deco-sites/std/sections/configShopify.global.tsx": $$$18,
+    "deco-sites/std/sections/configVTEX.global.tsx": $$$19,
   },
   functions: {
-    "$live/functions/EffectSelectPage.ts": $$$$0,
-    "$live/functions/MatchDate.ts": $$$$1,
-    "$live/functions/MatchEnvironment.ts": $$$$2,
-    "$live/functions/MatchRandom.ts": $$$$3,
-    "$live/functions/MatchSite.ts": $$$$4,
-    "$live/functions/MatchUserAgent.ts": $$$$5,
-    "deco-sites/std/functions/occProductDetailsPage.ts": $$$$6,
-    "deco-sites/std/functions/shopifyProductDetailsPage.ts": $$$$7,
-    "deco-sites/std/functions/shopifyProductList.ts": $$$$8,
-    "deco-sites/std/functions/shopifyProductListingPage.ts": $$$$9,
-    "deco-sites/std/functions/vtexConfig.ts": $$$$10,
-    "deco-sites/std/functions/vtexLegacyProductDetailsPage.ts": $$$$11,
-    "deco-sites/std/functions/vtexLegacyProductList.ts": $$$$12,
-    "deco-sites/std/functions/vtexLegacyProductListingPage.ts": $$$$13,
-    "deco-sites/std/functions/vtexProductDetailsPage.ts": $$$$14,
-    "deco-sites/std/functions/vtexProductList.ts": $$$$15,
-    "deco-sites/std/functions/vtexProductListingPage.ts": $$$$16,
-    "deco-sites/std/functions/vtexSuggestions.ts": $$$$17,
+    "./functions/vtexLegacyProductList.ts": $$$$0,
+    "$live/functions/EffectSelectPage.ts": $$$$1,
+    "$live/functions/MatchDate.ts": $$$$2,
+    "$live/functions/MatchEnvironment.ts": $$$$3,
+    "$live/functions/MatchRandom.ts": $$$$4,
+    "$live/functions/MatchSite.ts": $$$$5,
+    "$live/functions/MatchUserAgent.ts": $$$$6,
+    "deco-sites/std/functions/occProductDetailsPage.ts": $$$$7,
+    "deco-sites/std/functions/shopifyProductDetailsPage.ts": $$$$8,
+    "deco-sites/std/functions/shopifyProductList.ts": $$$$9,
+    "deco-sites/std/functions/shopifyProductListingPage.ts": $$$$10,
+    "deco-sites/std/functions/vtexConfig.ts": $$$$11,
+    "deco-sites/std/functions/vtexLegacyProductDetailsPage.ts": $$$$12,
+    "deco-sites/std/functions/vtexLegacyProductList.ts": $$$$13,
+    "deco-sites/std/functions/vtexLegacyProductListingPage.ts": $$$$14,
+    "deco-sites/std/functions/vtexProductDetailsPage.ts": $$$$15,
+    "deco-sites/std/functions/vtexProductList.ts": $$$$16,
+    "deco-sites/std/functions/vtexProductListingPage.ts": $$$$17,
+    "deco-sites/std/functions/vtexSuggestions.ts": $$$$18,
   },
   schemas: {
     "./sections/BannerGrid.tsx": {
@@ -835,6 +841,29 @@ const manifest: DecoManifest = {
       },
       "outputSchema": null,
     },
+    "./sections/ProductCompositeShelf.tsx": {
+      "inputSchema": {
+        "title": " Product Composite Shelf",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+          },
+          "productsCollections": {
+            "$id": "be77be299163a89407c2e81e5c2b8f906be70d9d",
+            "format": "live-function",
+            "type": "string",
+            "title": "Products Collections",
+          },
+        },
+        "required": [
+          "title",
+          "productsCollections",
+        ],
+      },
+      "outputSchema": null,
+    },
     "./sections/ProductDetails.tsx": {
       "inputSchema": {
         "title": " Product Details",
@@ -935,6 +964,102 @@ const manifest: DecoManifest = {
         "required": [],
       },
       "outputSchema": null,
+    },
+    "./functions/vtexLegacyProductList.ts": {
+      "inputSchema": {
+        "title": "Vtex Legacy Product List",
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Query",
+            "description": "query to use on search",
+          },
+          "count": {
+            "type": "number",
+            "title": "Count",
+            "description": "total number of items to display",
+          },
+          "sort": {
+            "type": "string",
+            "anyOf": [
+              {
+                "type": "string",
+                "const": "",
+              },
+              {
+                "type": "string",
+                "const": "price:desc",
+              },
+              {
+                "type": "string",
+                "const": "price:asc",
+              },
+              {
+                "type": "string",
+                "const": "orders:desc",
+              },
+              {
+                "type": "string",
+                "const": "name:desc",
+              },
+              {
+                "type": "string",
+                "const": "name:asc",
+              },
+              {
+                "type": "string",
+                "const": "release:desc",
+              },
+              {
+                "type": "string",
+                "const": "discount:desc",
+              },
+            ],
+            "title": "Sort",
+            "description": "search sort parameter",
+          },
+          "collection": {
+            "title": "Collection",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "title": "Id",
+                },
+                "title": {
+                  "type": "string",
+                  "title": "Title",
+                },
+              },
+              "required": [
+                "id",
+                "title",
+              ],
+            },
+            "description":
+              "Collection ID or (Product Cluster id). For more info: https://developers.vtex.com/docs/api-reference/search-api#get-/api/catalog_system/pub/products/search .",
+            "pattern": "\\d*",
+          },
+        },
+        "required": [
+          "count",
+        ],
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$id": "be77be299163a89407c2e81e5c2b8f906be70d9d",
+          },
+        },
+        "additionalProperties": true,
+      },
     },
     "$live/functions/EffectSelectPage.ts": {
       "inputSchema": {
