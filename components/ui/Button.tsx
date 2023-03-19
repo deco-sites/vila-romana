@@ -23,6 +23,8 @@ const variants = {
     "h-[36px] px-2 rounded-full bg-transparent text-default border-transparent hover:bg-hover active:border-interactive disabled:text-subdued disabled:bg-interactive-inverse focus:outline-none",
   simple:
     "h-[36px] px-2 text-default border-transparent active:border-interactive disabled:text-subdued disabled:bg-interactive-inverse focus:outline-none",
+  buy: 
+   ""
 };
 
 const Button = forwardRef<HTMLButtonElement, Props>(({

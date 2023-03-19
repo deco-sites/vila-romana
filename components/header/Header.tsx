@@ -5,7 +5,7 @@ import type { LoaderReturnType } from "$live/types.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 import type { ClientConfigVTEX } from "deco-sites/std/functions/vtexConfig.ts";
 
-import Alert from "./Alert.tsx";
+import Alert from "$store/islands/Alert.tsx";
 import Navbar from "./Navbar.tsx";
 import { headerHeight } from "./constants.ts";
 

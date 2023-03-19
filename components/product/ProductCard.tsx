@@ -82,6 +82,7 @@ function ProductCard({ product, preload }: Props) {
     >
       <div aria-label="product link">
         <div class="relative w-full">
+        <a href={url}>
           <Image
             src={back?.url ?? front.url!}
             alt={front.alternateName}
@@ -100,6 +101,7 @@ function ProductCard({ product, preload }: Props) {
             class="rounded w-full hidden group-hover:block"
             sizes="(max-width: 640px) 50vw, 20vw"
           />
+        </a>
           {seller && (
             <div class="absolute bottom-0 hidden sm:group-hover:flex flex-col bg-white w-full p-2 p-5">
               <div class="text-center text-xxs text-gray-700">
@@ -127,7 +129,7 @@ function ProductCard({ product, preload }: Props) {
             class="overflow-hidden overflow-ellipsis whitespace-nowrap"
             variant="caption"
           >
-            {product.isVariantOf?.name}
+            <a href={url}>{product.isVariantOf?.name}</a>
           </Text>
 
           <Text
