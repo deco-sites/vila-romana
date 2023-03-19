@@ -73,7 +73,7 @@ const Modal = ({
               ? (
                 <Text
                   variant="bold"
-                  class="text-uppercase !text-sm text-[#505050]"
+                  class="text-uppercase !text-sm text-[#505050] lg:!text-base lg:tracking-[1px]"
                 >
                   {title}
                 </Text>
@@ -82,7 +82,7 @@ const Modal = ({
           </h1>
           <Button variant="icon" onClick={onClose}>
             {title === "Resumo da compra" && (
-              <Text class="text-[#a9a9a9] !text-xs">Fechar</Text>
+              <Text class="text-[#a9a9a9] !text-xs lg:!text-base">Fechar</Text>
             )}
             <Icon
               id="XMark"

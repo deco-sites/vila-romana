@@ -21,6 +21,7 @@ function CartItem({ index }: Props) {
     sellingPrice,
     name,
     quantity,
+    detailUrl,
   } = item;
 
   const isGift = sellingPrice < 0.01;
@@ -37,18 +38,31 @@ function CartItem({ index }: Props) {
       <div class="flex-grow">
         <Text
           variant="body"
-          class="block truncate max-w-[170px] text-xs lg:max-w-full"
+          class="block truncate max-w-[170px] text-xs lg:max-w-full lg:text-[13px] lg:whitespace-normal"
         >
-          {name}
+          {window.outerWidth > 1024
+            ? (
+              <a
+                class="underline"
+                href={`https://www.vilaromana.com.br${detailUrl}`}
+              >
+                {name}
+              </a>
+            )
+            : (
+              name
+            )}
         </Text>
         <div class="flex flex-col items-baseline">
-          <Text tone="price" variant="bold" class="!text-xs pb-5">
+          <Text tone="price" variant="bold" class="!text-xs pt-5 pb-2.5">
             {isGift
               ? "Grátis"
               : formatPrice(sellingPrice / 100, currencyCode!, locale)}
           </Text>
 
-          <Text class="text-xs text-[#505050]">Quantidade: {quantity}</Text>
+          <Text class="text-xs text-[#505050] border-t-1 pt-1.5">
+            Quantidade: {quantity}
+          </Text>
           <Text class="text-xs text-[#505050]">Tamanho:</Text>
           <Text class="lg:hidden text-xs text-[#505050]">Cor:</Text>
         </div>

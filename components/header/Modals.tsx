@@ -59,7 +59,11 @@ function Modals({ menu, searchbar }: Props) {
         }}
       >
         <Suspense fallback={<Loading />}>
-          <Cart />
+          <Cart
+            onClose={() => {
+              displayCart.value = false;
+            }}
+          />
         </Suspense>
       </Modal>
     </>
