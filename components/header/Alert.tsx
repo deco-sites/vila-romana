@@ -1,7 +1,7 @@
 import Text from "$store/components/ui/Text.tsx";
 import SliderControllerJS from "$store/islands/SliderJS.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
-import { useId, useState, useEffect } from "preact/hooks";
+import { useEffect, useId, useState } from "preact/hooks";
 
 export interface Props {
   alerts: string[];
@@ -16,8 +16,8 @@ function Alert({ alerts = [], interval = 5 }: Props) {
   const id = useId();
   const [isVisible, setIsVisible] = useState(true);
 
-   const listenToScroll = () => { 
-    let heightToHideFrom = 50;
+  const listenToScroll = () => {
+    const heightToHideFrom = 50;
     const winScroll = document.body.scrollTop ||
       document.documentElement.scrollTop;
 
@@ -35,7 +35,7 @@ function Alert({ alerts = [], interval = 5 }: Props) {
   }, []);
 
   return (
-    <div id={id} class={isVisible ? 'block' : 'hidden'}>
+    <div id={id} class={isVisible ? "block" : "hidden"}>
       <Slider class="bg-[#c67f4b] gap-6 scrollbar-none">
         {alerts.map((alert) => (
           <Text
