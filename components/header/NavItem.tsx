@@ -26,7 +26,7 @@ function NavItem({ item }: { item: INavItem }) {
       {children && children.length > 0 &&
         (
           <div
-            class={`absolute invisible hover:visible group-hover:visible bg-white z-50 flex items-start justify-center gap-6 border-t-1 border-b-2 border-default w-auto top-[100%]`}
+            class={`absolute invisible hover:visible group-hover:visible bg-white z-50 flex items-start justify-center gap-6 border-t-1 border-b-2 border-default w-auto top-[100%] shadow-md`}
           >
       <div class="absolute top-0 left-[50%] transform -translate-x-1/2 -translate-y-1/2 rotate-45 w-4 h-4 bg-white border-l border-t border-white"></div>
 
@@ -40,14 +40,14 @@ function NavItem({ item }: { item: INavItem }) {
                 loading="lazy"
               />
             )}
-            <ul class="flex items-start justify-center gap-6">
+            <ul class="flex flex-col items-start justify-center gap-3 p-6">
               {children.map((node) => (
-                <li class="p-6">
+                <li class="">
                   <a class="hover:underline" href={node.href}>
-                    <Text variant="menu">{node.label}</Text>
+                    <Text variant="caption">{node.label}</Text>
                   </a>
 
-                  <ul class="flex flex-col gap-1 mt-4">
+                  <ul class="flex flex-col gap-1">
                     {node.children?.map((leaf) => (
                       <li>
                         <a class="hover:underline" href={leaf.href}>

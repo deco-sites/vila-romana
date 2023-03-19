@@ -24,7 +24,7 @@ function Controls({ page }: { page: ProductListingPage }) {
 
   return (
     <Container class="flex flex-col justify-between mb-4 md:mb-0 p-4 md:p-0 sm:gap-4 sm:flex-row sm:h-[53px] md:border-b-1 mt-24 md:mt-44">
-      <div class="flex flex-row items-center sm:p-0 mb-2">
+      <div class="flex flex-row items-center sm:p-0 mb-2 w-full">
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
       </div>
       <div class="flex flex-row sm:gap-4 items-center justify-between border-b-1 border-default md:border-none">
