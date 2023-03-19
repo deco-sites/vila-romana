@@ -150,10 +150,10 @@ function ProductCard({ product, preload }: Props) {
               {formatPrice(price, offers!.priceCurrency!)}
             </Text>
           </div>
-
+          <div class="flex items-center gap-2 min-h-[40px]">
           {priceInstallment?.billingIncrement &&
             priceInstallment.billingIncrement !== price && (
-            <div class="flex items-center gap-2">
+            
               <Text
                 class="text-sm text-gray-700"
                 variant="caption"
@@ -163,8 +163,8 @@ function ProductCard({ product, preload }: Props) {
                   offers!.priceCurrency!,
                 )} sem juros
               </Text>
-            </div>
           )}
+          </div>
         </div>
       </a>
     </div>
