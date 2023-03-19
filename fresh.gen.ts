@@ -563,6 +563,10 @@ const manifest: DecoManifest = {
                       "type": "string",
                       "const": "Return",
                     },
+                    {
+                      "type": "string",
+                      "const": "LogoHeader",
+                    },
                   ],
                   "title": "Icon",
                   "description": "Image src",

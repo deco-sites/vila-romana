@@ -1,5 +1,6 @@
 import type { Image } from "deco-sites/std/components/types.ts";
 import { Picture } from "deco-sites/std/components/Picture.tsx";
+import Icon from "../ui/Icon.tsx";
 
 export interface ILogo {
   src: string;
@@ -16,16 +17,12 @@ function Logo({ logo }: { logo: ILogo }) {
       title={title}
       class={`inline-flex items-center w-[60%] md:w-auto`}
     >
-      <Picture class="">
-        <img
-          class="object-cover sm:h-full"
-          src={src}
-          title={title}
-          alt={alt}
-          width={238}
-          height={56}
-        />
-      </Picture>
+      <Icon
+        id="LogoHeader"
+        width={238}
+        height={56}
+        class="block text-[#adadad]"
+      />
     </a>
   );
 }

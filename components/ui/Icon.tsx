@@ -41,7 +41,8 @@ export type AvailableIcons =
   | "Location"
   | "Pickup"
   | "Scissors"
-  | "Return";
+  | "Return"
+  | "LogoHeader";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**
