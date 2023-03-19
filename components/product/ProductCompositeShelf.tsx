@@ -9,9 +9,10 @@ import { ResultCollection } from "../../functions/vtexLegacyProductList.ts";
 import { useId, useState } from "preact/hooks";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { HTML } from "deco-sites/std/components/types.ts";
 
 export interface Props {
-  title: string;
+  title: HTML;
   productsCollections: LoaderReturnType<ResultCollection[]>;
 }
 
@@ -36,7 +37,10 @@ function ProductCompositeShelf({
   return (
     <div class="mt-16">
       <h2 class="text-center row-start-1 col-span-full">
-        <Text variant="heading-2">{title}</Text>
+        <span
+          class="text-center text-xl text-[#505050]"
+          dangerouslySetInnerHTML={{ __html: title }}
+        />
       </h2>
       <div
         id={id}
