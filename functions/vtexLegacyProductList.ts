@@ -69,12 +69,6 @@ const legacyProductListLoader: LoaderFunction<
   const query = props.query || "";
   const O = props.sort || "";
 
-  if (props.collection) {
-    const fq = props.collection.map((productClusterId) =>
-      `productClusterIds:${productClusterId.id}`
-    ).join(",");
-  }
-
   // search products on VTEX. Feel free to change any of these parameters
   const promises: Promise<LegacyProduct[]>[] = [];
 
